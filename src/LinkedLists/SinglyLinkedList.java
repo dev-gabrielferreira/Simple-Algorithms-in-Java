@@ -11,7 +11,7 @@ public class SinglyLinkedList<T> implements LinkedLists<T>{
         if(isEmpty())
             newNode.next = null;
         else
-            newNode.next = head.next;
+            newNode.next = head;
 
         this.head = newNode;
         size++;
@@ -19,7 +19,9 @@ public class SinglyLinkedList<T> implements LinkedLists<T>{
     }
 
     @Override
-    public void insertEnd(T data){}
+    public void insertEnd(T data){
+
+    }
     @Override
     public T search(T value){return value;}
     @Override

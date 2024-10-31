@@ -20,14 +20,61 @@ public class SinglyLinkedList<T> implements LinkedLists<T>{
 
     @Override
     public void insertEnd(T data){
+        Node<T> el = new Node<>(data);
+
+        if(isEmpty())
+            head = el;
+        else {
+            Node<T> current = head;
+            while(current.next != null){
+                current = current.next;
+            }
+            current.next = el;
+        }
 
     }
+
     @Override
-    public T search(T value){return value;}
+    public boolean search(T value){
+        Node<T> current = head;
+
+        while(current != null) {
+            if(current.data == value)
+                return true;
+            current = current.next;
+        }
+        return false;
+    }
+
     @Override
-    public void reverse(T head){}
+    public void reverse(){
+        Node<T> curr = head;
+        Node<T> prev = null;
+
+        while(curr != null) {
+            Node<T> next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        this.head = prev;
+    }
+
     @Override
-    public void delete(T target){}
+    public void delete(T target){
+        Node<T> curr = head;
+
+        while(curr.next != null){
+            if(curr.next.data == target){
+                Node<T> tmp = curr.next;
+                curr.next = tmp.next;
+                break;
+            }else{
+                curr = curr.next;
+            }
+        }
+    }
 
     @Override
     public void print(){
@@ -38,7 +85,12 @@ public class SinglyLinkedList<T> implements LinkedLists<T>{
             current = current.next;
         }
     }
-    public void printInReverse(T head){}
+
+    @Override
+    public void printInReverse(){
+        reverse();
+        print();
+    }
 
     @Override
     public boolean isEmpty() {

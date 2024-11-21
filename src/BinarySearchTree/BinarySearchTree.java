@@ -65,4 +65,19 @@ public class BinarySearchTree {
     public void postOrderTraversal() {
         postOrder(root);
     }
+
+    public boolean search(int value) {
+        Node curr = root;
+
+        while(curr != null) {
+            if(value > curr.value)
+                curr = curr.right;
+            else if(value < curr.value)
+                curr = curr.left;
+            else
+                return true;
+        }
+
+        return false;
+    }
 }

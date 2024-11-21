@@ -41,4 +41,28 @@ public class BinarySearchTree {
     public void preOrderTraversal() {
         preOrder(root);
     }
+
+    private void inOrder(Node r) {
+        if(r != null) {
+            inOrder(r.left);
+            System.out.print(r.value + " ");
+            inOrder(r.right);
+        }
+    }
+
+    public void inOrderTraversal() {
+        inOrder(root);
+    }
+
+    private void postOrder(Node r) {
+        if(r != null) {
+            postOrder(r.left);
+            postOrder(r.right);
+            System.out.print(r.value + " ");
+        }
+    }
+
+    public void postOrderTraversal() {
+        postOrder(root);
+    }
 }

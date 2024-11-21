@@ -32,7 +32,7 @@ public class BinarySearchTree {
 
     private void preOrder(Node r) {
         if(r != null) {
-            System.out.println(r.value);
+            System.out.print(r.value + " ");
             preOrder(r.left);
             preOrder(r.right);
         }

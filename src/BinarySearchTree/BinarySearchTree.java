@@ -93,4 +93,12 @@ public class BinarySearchTree {
     public void reverseBST() {
         reverse(root);
     }
+
+    public void deleteBST() {
+        this.root = null;
+    }
+
+    public boolean isEmpty() {
+        return root == null;
+    }
 }

@@ -80,4 +80,17 @@ public class BinarySearchTree {
 
         return false;
     }
+
+    private void reverse(Node root) {
+        if(root != null) {
+            reverse(root.left);
+            reverse(root.right);
+            Node tmp = root.left;
+            root.left = root.right;
+            root.right = tmp;
+        }
+    }
+    public void reverseBST() {
+        reverse(root);
+    }
 }

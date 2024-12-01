@@ -101,4 +101,35 @@ public class BinarySearchTree {
     public boolean isEmpty() {
         return root == null;
     }
+
+    private Node delete(int target, Node node) {
+        if (node == null) return null;
+
+        if (target < node.value) {
+            node.left = delete(target, node.left);
+        } else if (target > node.value) {
+            node.right = delete(target, node.right);
+        } else {
+            if (node.left == null || node.right == null) {
+                return (node.left != null) ? node.left : node.right;
+            }
+
+            Node successor = getSuccessor(node);
+            node.value = successor.value;
+            node.right = delete(successor.value, node.right);
+        }
+        return node;
+    }
+
+    private Node getSuccessor(Node node) {
+        Node tmp = node.right;
+        while (tmp != null && tmp.left != null) {
+            tmp = tmp.left;
+        }
+        return tmp;
+    }
+
+    public void deleteElement(int target) {
+        this.root = delete(target, root);
+    }
 }

@@ -1,7 +1,7 @@
 package BinarySearchTree;
 
 public class BinarySearchTree {
-    private Node root = null;
+    public Node root = null;
 
     public void insert(int val) {
         Node el = new Node(val);
@@ -131,5 +131,14 @@ public class BinarySearchTree {
 
     public void deleteElement(int target) {
         this.root = delete(target, root);
+    }
+
+    public int height(Node root) {
+        if(root == null) return 0;
+
+        int left = height(root.left);
+        int right = height(root.right);
+
+        return Math.max(left, right) + 1;
     }
 }

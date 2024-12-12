@@ -29,5 +29,6 @@ public class BSTMain {
         System.out.println("\n");
         System.out.println(bst.isEmpty());
         bst.inOrderTraversal();
+
     }
 }

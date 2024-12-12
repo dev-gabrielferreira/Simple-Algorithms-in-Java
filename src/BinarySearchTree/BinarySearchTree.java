@@ -141,4 +141,38 @@ public class BinarySearchTree {
 
         return Math.max(left, right) + 1;
     }
+
+    public int getMin(Node root) {
+        if(root == null) return -1;
+        Node curr = root;
+
+        while(curr.left != null) {
+            curr = curr.left;
+        }
+
+        return Math.min(curr.value, root.value);
+    }
+
+    public int getMax(Node root) {
+        if(root == null) return -1;
+        Node curr = root;
+
+        while(curr.right != null) {
+            curr = curr.right;
+        }
+
+        return Math.max(curr.value, root.value);
+    }
+
+    public int countNodes(Node root) {
+        if(root == null) return 0;
+
+        return countNodes(root.left) + countNodes(root.right) + 1;
+    }
+
+    public int reduce(Node root) {
+        if(root == null) return 0;
+
+        return root.value + reduce(root.left) + reduce(root.right);
+    }
 }

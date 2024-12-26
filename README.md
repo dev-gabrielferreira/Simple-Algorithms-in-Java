@@ -1,2 +1,1 @@
-# simple-algorithms-in-java
-# simple-algorithms-in-java
+repository with data structure and common algorithms
